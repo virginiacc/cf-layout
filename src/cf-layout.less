@@ -1438,10 +1438,10 @@
            default/mobile view. At larger screen sizes, the text occupies a
            fixed portion of the screen (equal to the width of 5 of 12 columns
            at 701px & 3 of 12 columns at 901px for desktop). The
-           visual occupies the remaining space. The visual also has a fixed
-           width (the standard is 570 so it has 16x9 ratio at 900px where
-           the height of the module is 330px), and is center-cropped when it
-           becomes too wide for the available space."
+           visual occupies the remaining space. The visual should be 640x360
+           (16x9 ratio) and resize to fit the height of the FCM with a static
+           width and is center-cropped when it becomes too wide for the
+           available space."
       codenotes:
         - .featured-content-module
   tags:
@@ -1466,8 +1466,8 @@
   });
 
   .respond-to-range(@bp-sm-min, @fcm-bp-max, {
-    padding-right: 65px;
-    padding-left:65px;
+    padding-right: 30px;
+    padding-left: 30px;
   });
 
   &_text {
