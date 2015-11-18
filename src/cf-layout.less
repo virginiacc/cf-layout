@@ -1510,6 +1510,11 @@
       position: relative;
       left: 50%;
       transform: translateX(-50%);
+
+      .lt-ie9 & {
+        left: -302.5px; // Width at full width
+        margin-left: 50%;
+      }
     });
   }
 }
