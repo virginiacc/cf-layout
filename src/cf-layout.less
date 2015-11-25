@@ -81,9 +81,9 @@
             .content-l_col
       notes:
         - "Simplifies use of grid structure inside content containers (like .content-main)."
-        - "Since .content-l_col's are nested within .content_main extra margins will occur. 
+        - "Since .content-l_col's are nested within .content_main extra margins will occur.
            The .content-l container uses the grid_nested-col-group mixin to counter this."
-        - ".content-l_col-RATIO classes default to stacking on mobile and displaying as columns 
+        - ".content-l_col-RATIO classes default to stacking on mobile and displaying as columns
            above mobile-max width (600px). This may not be the desired breakpoint for
            all use cases, so mixins are provided to simplify changing column display to
            stacked."
@@ -161,8 +161,8 @@
       notes:
         - "Designed for use within .content_full containers."
         - "Displays .content-l_col-1-2 as columns at tablet sizes & above (600px+)"
-        - "Displays other common .content-l_col modifiers (.content-l_col-1-3, 
-           .content-l_col-2-3, .content-l_col-3-8, .content-l_col-5-8) 
+        - "Displays other common .content-l_col modifiers (.content-l_col-1-3,
+           .content-l_col-2-3, .content-l_col-3-8, .content-l_col-5-8)
            as columns above 767px."
     - name: .content-l__main modifier
       markup: |
@@ -232,11 +232,11 @@
       codenotes:
         - .content-l.content-l__main
       notes:
-        - "Designed for use in .content_main containers, which have reduced (75%) width 
+        - "Designed for use in .content_main containers, which have reduced (75%) width
            above tablet sizes to accommodate adjacent sidebar column."
         - "Displays .content-l_col-1-2 as columns in the tablet range, 600-800px;
            stacked from 800-899, the start of sidebar range; and as columns again at 900px+"
-        - "Displays other common .content-l_col modifiers (.content-l_col-1-3, .content-l_col-2-3,    
+        - "Displays other common .content-l_col modifiers (.content-l_col-1-3, .content-l_col-2-3,
            .content-l_col-3-8, .content-l_col-5-8) as columns above 900px."
     - name: .content-l__sidebar modifier
       markup: |
@@ -306,9 +306,9 @@
       codenotes:
         - .content-l.content-l__sidebar
       notes:
-        - "For use in sidebar containers, which are full width only 
+        - "For use in sidebar containers, which are full width only
            on tablet widths (600-800px)."
-        - "Displays .content-l_col-1-2 as columns in the tablet range, 
+        - "Displays .content-l_col-1-2 as columns in the tablet range,
            600-800px, and stacked at all other widths."
     - name: Large gutters modifier
       markup: |
@@ -357,14 +357,14 @@
     .respond-to-min(@tablet-min, {
         .grid_nested-col-group();
     });
-    
+
     &__full {
         .respond-to-range(@tablet-min, 767px, {
             .stack-col-thirds();
-            .stack-col-eighths(); 
+            .stack-col-eighths();
         });
     }
-    
+
     &__main {
         .respond-to-range(801px, 899px, {
             .stack-col(content-l_col-1-2);
@@ -372,13 +372,13 @@
 
         .respond-to-range(@tablet-min, 899px, {
             .stack-col-thirds();
-            .stack-col-eighths();        
+            .stack-col-eighths();
         });
     }
-    
+
     &__sidebar {
         .stack-col-thirds();
-        .stack-col-eighths();        
+        .stack-col-eighths();
 
         .respond-to-min(801px, {
             .stack-col(content-l_col-1-2);
@@ -524,20 +524,20 @@
 
 
 .stack-col(@col) {
-    .content-l_col.@{col} { 
+    .content-l_col.@{col} {
         width: 100%;
-        
+
         &.content-l_col__before-divider {
             .grid_column__top-divider();
         }
     }
-    
+
     &.content-l__large-gutters {
         .content-l_col.@{col}.content-l_col__before-divider {
             border-left-width: @grid_gutter-width;
         }
     }
-    
+
     .content-l_col.@{col} + .content-l_col.@{col} {
         margin-top: unit(@grid_gutter-width / @base-font-size-px, em);
     }
@@ -546,7 +546,7 @@
 .stack-col-thirds() {
   .stack-col(content-l_col-1-3);
   .stack-col(content-l_col-2-3);
-  
+
   .content-l_col.content-l_col-1-3 + .content-l_col.content-l_col-2-3,
   .content-l_col.content-l_col-2-3 + .content-l_col.content-l_col-1-3 {
      margin-top: unit(@grid_gutter-width / @base-font-size-px, em);
@@ -1124,11 +1124,11 @@
 .block {
     margin-top: unit((@grid_gutter-width * 2) / @base-font-size-px, em);
     margin-bottom: unit((@grid_gutter-width * 2) / @base-font-size-px, em);
-    
+
     &__border-top {
         border-top: 1px solid @gray-50;
     }
-    
+
     &__border-bottom {
         border-bottom: 1px solid @gray-50;
     }
@@ -1159,7 +1159,7 @@
                      unit(@grid_gutter-width / @base-font-size-px, em);
         });
     }
-    
+
     &__padded-top {
         padding-top: unit(30px / @base-font-size-px, em);
         margin-top: unit(30px / @base-font-size-px, em);
@@ -1375,7 +1375,7 @@
 .grid_column__top-divider {
     margin-top: unit((@grid_gutter-width * 2) / @base-font-size-px, em);
     border-left-width: @grid_gutter-width / 2;
-    
+
     &:before {
         content: "";
         display: block;
@@ -1407,196 +1407,116 @@
   name: Featured content module
   family: cf-layout
   patterns:
-    - name: .featured-content-module 
-      markup: |
-        <style>
-        </style>
-        <main class="content content__1-3" id="main" role="main">
-            <div class="content_wrapper">
-                <aside class="content_sidebar">
-                    Section navigation
-                </aside>
-                <section class="content_main">
-                    <section class="featured-content-module">
-                      <div class="featured-content-module_text">
-                        <h2 class="featured-content-module_tag">
-                          <span class="featured-content-module_icon cf-icon cf-icon-date"></span>
-                          Featured event
-                        </h2>
-                        <h1 class="featured-content-module_headline">Consumer Advisory Board meeting</h1>
-                        <p class="featured-content-module_body">Oct 22, 2015 @ 10:00AM EDT <br/>Washington, DC</p>
-                        <a class="featured-content-module_cta jump-link">Read more about the event</a>
-                      </div>
-                      <div class="featured-content-module_visual">
-                        <div class="featured-content-module_wrapper">
-                        <img class="featured-content-module_img" src="http://placekitten.com/g/540/270">
-                        </div>
-                      </div>
-                    </section>
-                </section>
-            </div>
-        </main>
+    - name: .featured-content-module
+      markup:
+        <section class="block
+                        block__border
+                        block__flush
+                        featured-content-module">
+          <div class="featured-content-module_text">
+            <p class=h4>
+              <span class="featured-content-module_icon cf-icon cf-icon-date">
+              </span>
+              Featured event
+            </p>
+            <h2>Consumer Advisory Board meeting</h2>
+            <p>Oct 22, 2015 @ 10:00AM EDT <br/>Washington, DC</p>
+            <a class="jump-link jump-link__underline">
+              <span class="jump-link_text">Read more about the event</span>
+            </a>
+          </div>
+          <div class="featured-content-module_visual">
+            <img class="featured-content-module_img"
+                 src="http://placekitten.com/g/540/270">
+          </div>
+        </section>
       notes:
-        - "Featured content module, like a hero, consists of headline/text/optional call to action
-           along with a visual. It is intended to be used in a main content column next to a   
-           sidebar."
-        - "Text is full width & displayed above the visual in the default/mobile view. At larger
-           screen sizes, the text occupies a fixed portion of the screen (equal to the width of 
-           5 of 12 columns at 799px for tablets & 3 of 12 columns at 1140px for desktop). The
-           visual occupies the remaining space. The visual also has a fixed width on larger screens   
-           (defaults to 540 so it has 16x9 ratio on desktop where the height of the module is 
-           270px), and is center-cropped when it becomes too wide for the available space."
-        - "Add the .featured-content-module__left modifier when the sidebar column is on the right 
-           side. The background color will bleed off the left edge of the screen at desktop sizes."
+        - "Featured content module, like a hero, consists of
+           headline/text/optional call to action along with a visual. It is
+           intended to be used in a main content column next to a sidebar."
+        - "Text is full width & displayed above the visual in the
+           default/mobile view. At larger screen sizes, the text occupies a
+           fixed portion of the screen (equal to the width of 5 of 12 columns
+           at 701px & 3 of 12 columns at 901px for desktop). The
+           visual occupies the remaining space. The visual should be 640x360
+           (16x9 ratio) and resize to fit the height of the FCM with a static
+           width and is center-cropped when it becomes too wide for the
+           available space."
       codenotes:
         - .featured-content-module
-        - .featured-content-module__left
   tags:
     - cf-layout
 */
 
-
 .featured-content-module {
-  background-color: @gray-5;
-  border-top: 1px solid @gray-50;
-  border-bottom: 1px solid @gray-50;
+  @fcm-bp-max: 700px;
+  @fcm-bp-min: 701px;
+
+  .webfont-regular();
+
   position: relative;
-  
-  .respond-to-max(@mobile-max, {    
-    margin-right: unit((-@grid_gutter-width / 2) / @base-font-size-px, em);
-    margin-left: unit((-@grid_gutter-width / 2) / @base-font-size-px, em);
+
+  min-height: 320px;
+
+  background-color: @gray-5;
+
+  .respond-to-max(@bp-xs-max, {
+    padding-right: 15px;
+    padding-left: 15px;
   });
-  
-  .respond-to-min(@tablet-min, {    
-    margin-right: unit(-@grid_gutter-width / @base-font-size-px, em);
-    margin-left: unit(-@grid_gutter-width / @base-font-size-px, em);
+
+  .respond-to-range(@bp-sm-min, @fcm-bp-max, {
+    padding-right: 30px;
+    padding-left: 30px;
   });
-  
-  .respond-to-min(800px, {
-    box-sizing: border-box;
-    min-height: 270px;
-    margin-right: 0;
-    border-right: 1px solid @gray-50;
-    padding-left: unit(@grid_gutter-width / @base-font-size-px, em);
-  });
-  
-  &__left {
-    .respond-to-min(800px, {
-      margin-right: unit(-@grid_gutter-width / @base-font-size-px, em);
-      margin-left: 0;
-      padding-left: 0;
-      border-right-width: 0;
-      
-      // bleed background off left edge of page
-      &:before {
-        left: -200%;
-        background-color: @gray-5;
-        content: '';
-        display: block;
-        position: absolute;
-        width: 200%;
-        border-top: 1px solid @gray-50;
-        border-bottom: 1px solid @gray-50;
-        top: -1px;
-        bottom: -1px;
-      }
-    });
-  }
-  
-  
+
   &_text {
-    padding-top: unit(25px / @base-font-size-px, em); // approximates 30px visually
+    padding-top: unit(@grid_gutter-width / @base-font-size-px, em);
     padding-bottom: unit(@grid_gutter-width / @base-font-size-px, em);
-    
-    .respond-to-max(@mobile-max, {    
-      padding-right: unit((@grid_gutter-width /2) / @base-font-size-px, em);
-      padding-left: unit((@grid_gutter-width /2) / @base-font-size-px, em);
-    });
-    
-    .respond-to-range(@tablet-min, 799px, {    
+
+    .respond-to-min(@fcm-bp-min, {
+      width: 300px; // width of 5 of 12 cols at 799px - 30px padding
+
+      padding-right: unit(@grid_gutter-width / @base-font-size-px, em);
       padding-left: unit(@grid_gutter-width / @base-font-size-px, em);
     });
-    
-    .respond-to-min(@tablet-min, {
-      margin-right: unit((@grid_gutter-width /2) / @base-font-size-px, em);
-      width: 303px; // width of 5 of 12 cols at 799px - 30px padding
-      float: left;
-      border-width: 0;
-    });
-    
-    .respond-to-min(800px, {
+
+    .respond-to-min(@bp-med-min, {
       width: 270px; // width of 3 of 12 cols at 1140px - 15px padding
     });
-    
-  }
-  
-  &_tag {
-    .h4;
-    margin-bottom: unit(18px / @base-font-size-px, em); // approximates 30px visually
-  }
-  
-  &_icon {
-    .respond-to-max(@mobile-max, {
-      display: none;
-    });
-  }
-
-  &_headline {
-    .h2;
-  }
-
-  &_body {
-    margin-bottom: unit(20px / @base-font-size-px, em);
-    .webfont-regular();
-    .respond-to-max(@mobile-max, {
-      .h4;
-    });
-  }
-
-  &_cta {
-    .webfont-regular();
-    
-    a& {
-      border-bottom-width: 1px;
-      cursor: pointer;
-    }
   }
 
   &_visual {
-    width: 100%;
-    line-height: 0;
-  }
- 
-  // crops image to center
-  &_wrapper {
-    text-align: center; 
-    overflow: hidden; 
+    .respond-to-min(@fcm-bp-min, {
+      position: absolute;
+      left: 360px;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      overflow: hidden;
+    });
+
+    .respond-to-min(@bp-med-min, {
+      left: 330px;
+    });
   }
 
   &_img {
-    .respond-to-min(@tablet-min, {
-      position: relative; 
+    display: block;
+
+    .respond-to-min(@fcm-bp-min, {
+      height: 100%;
+      max-width: none;
+      position: relative;
       left: 50%;
-      transform: translate(-50%,0); 
-      max-width: 540px;
-      width: 540px;
+      transform: translateX(-50%);
+
+      .lt-ie9 & {
+        left: -302.5px; // Width at full width
+        margin-left: 50%;
+      }
     });
   }
-  
-}
-
-.lt-ie9 {
-  
-  .featured-content-module {
-    border-left: 1px solid @gray-50;
-  }
-  .respond-to-min(@tablet-min, {
-     // image crop for older browsers
-     .featured-content-module_wrapper img {
-         left: 100%; 
-         margin-left: -200%;
-     }
-  });
 }
 
 /* topdoc
